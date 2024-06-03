@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing images</h2>
+
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="images/1038319.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="goku" src="images/1679851921762-286515893.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="naruto" src="images/703094.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="river" src="images/koscya-n-B8ouh7Arwr4-unsplash.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="mountain" src="images/mountain-8590965_1920.jpg" alt="photoshop"></li>
+            <li><a style="color: aliceblue;" id="google" href="https://www.google.com/">Google</a></li>
+        </ul>
+    </div>
+
+</body>
+
+<script>
+    // document.getElementById('naruto').onclick = function () {
+    //     alert('naruto clicked')
+    // }
+
+    // attachEvent() - used in internet explore
+    // jQuery - .onEventListner
+
+    //typr, timestamp, defaultprevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey. keyCode
+
+    // eventPropogation - it has two context 1- event bubbling meand inside to outside(false) and event capturing mean outside to inside(true) 
+
+    document.getElementById('images').addEventListener('click', function (e) {
+        console.log('clicked inside the ul');
+    }, false);
+
+    document.getElementById('naruto').addEventListener('click', function (e) {
+        console.log('clicked on naruto');
+        e.stopPropagation()
+    }, false);
+
+    document.getElementById('google').addEventListener('click', function (e) {
+        console.log('clicked on google');
+        e.preventDefault();
+        e.stopPropagation();
+    })
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+        }
+    })
+</script>
+
+</html>

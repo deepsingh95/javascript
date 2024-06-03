@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time interval</title>
+</head>
+
+<body>
+    <h2>Practice javascript with code</h2>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+
+</body>
+<script>
+
+    // const sayName = function () {
+    //     // console.log("deepak");
+    // }
+
+    // const changeText = function () {
+    //     document.querySelector("h2").innerHTML = "This best javascript material"
+    // }
+
+    // const startIt = setInterval(changeText, 3000)a
+
+    const changeText = function () {
+        console.log('deepak', Date.now());
+    }
+
+    let intervalid // declaration event listner hear
+
+    document.querySelector('#Start').addEventListener('click', function () {
+        intervalid = setInterval(changeText, 3000);
+        console.log("START");
+    });
+
+    document.querySelector('#Stop').addEventListener('click', function () {
+        clearInterval(intervalid);
+        console.log("STOP");
+    });
+
+</script>
+
+</html>
